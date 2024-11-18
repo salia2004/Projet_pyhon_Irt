@@ -73,7 +73,7 @@ def main():
     #---- Programme permetant d'affihcer toute les chaines alphanumerique commencant par une lettre et de logueur 5----
     
 
-    
+
     #-----------------Question 3
     alphabet = '01'
     motif = ['0', '?', '1']
@@ -84,5 +84,14 @@ def main():
     resultat1 = ex4.mot_correspond_motif(motif, alphabet, mot1)
     print(f"Le mot '{mot}' correspond-il au motif {motif} ? {resultat}")
     print(f"Le mot '{mot1}' correspond-il au motif {motif} ? {resultat1}")
+
+    #-----------------Question 4
+    alphabet = 'abc'
+    # Une lettre répétée 2 fois, puis une autre 3 fois, puis une autre 1 fois
+    motif = [2, 3, 1]  
+    resultat = ex4.mots_par_repetition(motif, alphabet)
+    print(f"Les mots correspondant au motif {motif} sont :")
+    print(resultat)
+
 if __name__ == "__main__":
     main()

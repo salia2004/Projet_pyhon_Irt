@@ -2,6 +2,12 @@
 #Fonction qui à partir d’un alphabet et d’une longueur k, générer toutes 
 # les combinaisons possibles de longueur k avec les éléments de l'alphabet.
 def mot_alphabet(k,alphabet):
+    """    
+    :param motif: decrit la structure des mots rechercher 
+    :param alphabet: Alphabet utilisé pour générer les mots.
+    :param mot: Mot a verifier
+    :return:si le mot donner correspond ou pas au motif .
+    """
     combinaison=[]#liste de scombinaison possible
     if k<=0:
         print("Erreur  : un mot de longueur 0 ne peut etre generer ")
@@ -20,8 +26,14 @@ def mot_alphabet(k,alphabet):
         # Démarrer la construction des mots
         construire_mots("", k)
         return combinaison
-    
+
+#Fonction qui prend en parametre un 
 def mot_motif(alphabet,motif):
+    """    
+    :param motif: decrit la structure des mots rechercher 
+    :param alphabet: Alphabet utilisé pour générer les mots.
+    :return: La liste des mots de ce motif construit avec l'alphabet.
+    """
     mots=[]
     taille_mot=len(motif)
     structure_motif=[]
@@ -42,6 +54,12 @@ def mot_motif(alphabet,motif):
 
 #Vérifie si un mot correspond à un motif donné sur un alphabet
 def mot_correspond_motif(motif, alphabet, mot):
+    """    
+    :param motif: decrit la structure des mots rechercher 
+    :param alphabet: Alphabet utilisé pour générer les mots.
+    :param mot: Mot a verifier
+    :return:si le mot donner correspond ou pas au motif .
+    """
     # Vérifie si la longueur du mot correspond à celle du motif
     if len(mot) != len(motif):
         return False
@@ -55,10 +73,24 @@ def mot_correspond_motif(motif, alphabet, mot):
     # Si toutes les conditions sont remplies, le mot correspond au motif
     return True
 
-#Génère tous les mots correspondant au motif fourni où les lettres sont répétées
-# selon le tableau d'entiers `motif`.
+#Génère tous les mots correspondant à un motif
+# Chaque élément du motif indique le nombre de répétitions consécutives de lettres
+# Les lettres doivent être différentes les unes des autres
 def mots_par_repetition(motif, alphabet):
-    liste=[]
-    #nous représentons les mots par un tableau d’entiers Nb_carac qui décrit la taille des séquences de lettres identiques.
+    """    
+    :param motif: Liste d'entiers décrivant les répétitions des lettres.
+    :param alphabet: Alphabet utilisé pour générer les mots.
+    :return: Liste de mots correspondant au motif.
+    """
+    resultats = [''] 
+    for repetitions in motif:
+        nouveaux_resultats = []
+        for mot in resultats:
+            # Pour chaque lettre de l'alphabet
+            for lettre in alphabet:
+                if not mot or lettre != mot[-1]:
+                    # Construire une nouvelle séquence et l'ajouter
+                    nouveaux_resultats.append(mot + lettre * repetitions)
+        resultats = nouveaux_resultats
 
-    return liste
+    return resultats
