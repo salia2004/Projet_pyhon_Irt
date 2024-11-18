@@ -1,5 +1,6 @@
 import exercice1 as ex1
 import exercice2 as ex2
+import exercice4 as ex4
 fichier_html="code.html"
 def main():
     # Tester l'Exercice 1
@@ -34,6 +35,54 @@ def main():
 
 
     # Tester l'Exercice 4
+    #-----------------Question 1
+    alphabet = ['a', 'b']
+    k = 3
+    resultat = ex4.mot_alphabet(k, alphabet)
+    print(f"Tous les mots de longueur {k} définis sur l'alphabet {alphabet} sont :",resultat)
+    alphabet = ['a', 'b','c']
+    k = 4
+    resultat = ex4.mot_alphabet(k, alphabet)
+    print(f"Tous les mots de longueur {k} définis sur l'alphabet {alphabet} sont :",resultat)
+    alphabet = ['a', 'b','b']
+    print(len(alphabet))
+    k = 4
+    resultat = ex4.mot_alphabet(k, alphabet)
+    print(f"Tous les mots de longueur {k} définis sur l'alphabet {alphabet} sont :",resultat)
 
+
+    #-----------------Question 2
+    #-----------------Question 2.1
+    alphabet = ['a', 'b', 'c']
+    motif = ['a', ' ', ' ']
+    resultat_motif = ex4.mot_motif(alphabet, motif)
+    print(f"Les mots correspondant au motif {motif} dans l'alphabet {alphabet} sont :")
+    print(resultat_motif)
+    alphabet = ['a', 'b', 'c']
+    motif = [' ', ' ', ' ']
+    resultat_motif = ex4.mot_motif(alphabet, motif)
+    print(f"Les mots correspondant au motif {motif} dans l'alphabet {alphabet} sont :")
+    print(resultat_motif)
+    alphabet = ['a', 'b', 'c']
+    motif = ['a', 'b', ' ']
+    resultat_motif = ex4.mot_motif(alphabet, motif)
+    print(f"Les mots correspondant au motif {motif} dans l'alphabet {alphabet} sont :")
+    print(resultat_motif)
+
+    #-----------------Question 2.2
+    #---- Programme permetant d'affihcer toute les chaines alphanumerique commencant par une lettre et de logueur 5----
+    
+
+    
+    #-----------------Question 3
+    alphabet = '01'
+    motif = ['0', '?', '1']
+    mot = "011"
+    mot1 = "010"
+
+    resultat = ex4.mot_correspond_motif(motif, alphabet, mot)
+    resultat1 = ex4.mot_correspond_motif(motif, alphabet, mot1)
+    print(f"Le mot '{mot}' correspond-il au motif {motif} ? {resultat}")
+    print(f"Le mot '{mot1}' correspond-il au motif {motif} ? {resultat1}")
 if __name__ == "__main__":
     main()
