@@ -1,5 +1,6 @@
 import exercice1 as ex1
 import exercice2 as ex2
+import exercice3 as ex3
 import exercice4 as ex4
 fichier_html="code.html"
 def main():
@@ -31,6 +32,21 @@ def main():
 
 
     # Tester l'Exercice 3
+    def lire_fichier(nom_fichier):
+        with open(nom_fichier, 'r') as f:
+            return f.read()  # Lire le contenu du fichier
+    message="message.txt"
+    texte=lire_fichier(message)
+    cle="mystere"
+    cryptogramme= ex3.vigenere_chiffre(texte,cle)
+    print("Cryptogramme : ", cryptogramme)
+
+    #Question2
+    fichier="crypto.txt"
+    cryptogramme=lire_fichier(fichier)
+    cle="mystere"
+    texte_clair= ex3.vigenere_dechiffre(cryptogramme,cle)
+    print("Texte clair: ", texte_clair )
 
 
 
