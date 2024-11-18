@@ -12,9 +12,6 @@ def main():
     print("Nombre de balises <p> dans le code HTML {fichier_html}:", ex1.compter_balises_p(fichier_html))
     print("Balises dans la section <body> :", ex1.balises_dans_body(fichier_html))
 
-
-
-
     # Tester l'Exercice 2
     #-----------------Question 
     mdp1="Paul09@"
@@ -22,11 +19,16 @@ def main():
     mdp3="PaulSabation#@#"
     mdp4="PAULSABTIET67#@"
     mdp5="PaulSabatier2024#"
-    print("le mode de passe ",mdp1,":",ex2.mots_de_passe_valide(mdp1))
-    print("le mode de passe ",mdp2,":",ex2.mots_de_passe_valide(mdp2))
-    print("le mode de passe ",mdp3,":",ex2.mots_de_passe_valide(mdp3))
-    print("le mode de passe ",mdp4,":",ex2.mots_de_passe_valide(mdp4))
-    print("le mode de passe ",mdp5,":",ex2.mots_de_passe_valide(mdp5))
+    mdp_compromis="ParisFrance2024#"
+    print("le mode de passe ",mdp1,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp1))
+    print("le mode de passe ",mdp2,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp2))
+    print("le mode de passe ",mdp3,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp3))
+    print("le mode de passe ",mdp4,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp4))
+    print("le mode de passe ",mdp5,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp5))
+    print("le mode de passe ",mdp_compromis,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp_compromis))
+    print("le mode de passe ",mdp_compromis," Est-il compromis ?:",ex2.mdp_compromis(mdp_compromis))
+
+
     # Tester l'Exercice 3
 
 
