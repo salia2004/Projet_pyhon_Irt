@@ -4,10 +4,6 @@ import exercice3 as ex3
 import exercice4 as ex4
 fichier_html="code.html"
 
-def main1():
-    resultat = ex1.balises_dans_body(fichier_html)
-    print(f"Résultat obtenu pour balises_dans_body : {resultat}")
-    assert resultat == {"p"}, "Échec : Mauvaises balises dans <body>"
 def main():
 
     ex4.generer_chaines_alphanumeriques()
@@ -124,4 +120,4 @@ def main():
     print(resultat)
 
 if __name__ == "__main__":
-    main1()
+    main()
