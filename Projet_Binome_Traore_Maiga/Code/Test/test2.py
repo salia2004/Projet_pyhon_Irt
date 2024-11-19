@@ -1,3 +1,8 @@
+import sys
+import os
+
+# Ajouter le répertoire parent au chemin d'importation
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
 import exercice2 as ex2
 
 def test_exercice2():
@@ -6,21 +11,21 @@ def test_exercice2():
     # Cas de test pour mots_de_passe_valide
     print("Test de la fonction `mots_de_passe_valide`")
     mots_de_passe_test = [
-        ("Motdepasse123!", False),  # Trop court
+        ("Mots123!", False),  # Trop court
         ("MotdepasseValide123!", True),  # Valide
         ("PasdeChiffre!", False),  # Manque un chiffre
         ("12345678901234", False),  # Manque majuscule, minuscule et caractère spécial
         ("Abc!123", False),  # Trop court
         ("Abcdefghijklmnop!123", True),  # Valide
         ("A!a1", False),  # Trop court
-        ("MOTDEPASSEVALIDEXXX@", True),  # Valide mais tous majuscules
+        ("MOTDEPASSEVALIDEXXX@", False),  # Valide mais tous majuscules
         ("motdepasse123@", False),  # Pas de majuscule
         ("MotdepasseSansSpecial", False),  # Pas de caractère spécial
     ]
 
     for mdp, attendu in mots_de_passe_test:
         resultat = ex2.mots_de_passe_valide(mdp)
-        assert resultat == attendu, f"Échec pour {mdp} : attendu {attendu}, obtenu {resultat}"
+        assert resultat == attendu, f"Échec pour {mdp} : attendu ={attendu}, obtenu ={resultat}"
     print("✔ Tous les tests pour `mots_de_passe_valide` ont réussi.")
 
     # Cas de test pour mdp_compromis
@@ -43,3 +48,5 @@ def test_exercice2():
     print("✔ Tous les tests pour `mdp_compromis` ont réussi.")
 
     print("\nFin des tests pour l'Exercice 2 : Tous les tests ont réussi.\n")
+if __name__ == "__main__":
+    test_exercice2()

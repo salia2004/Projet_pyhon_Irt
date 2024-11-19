@@ -1,3 +1,8 @@
+import sys
+import os
+
+# Ajouter le répertoire parent au chemin d'importation
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
 import exercice3 as ex3
 
 def test_exercice3():
@@ -41,3 +46,5 @@ def test_exercice3():
     print("✔ Chiffrement et déchiffrement pour le fichier ont réussi.")
     
     print("\nFin des tests pour l'Exercice 3 : Tous les tests ont réussi.\n")
+if __name__ == "__main__":
+    test_exercice3()
