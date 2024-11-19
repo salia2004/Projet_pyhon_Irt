@@ -59,7 +59,7 @@ mots_de_passe_compromis = [
     "N0ublieP@rF!t",
     "L3C0ffreF0rt!",
     "V3ryS@feCl3f",
-    "L@VieSécurée",
+    "LaVieSécurée4@",
     "L!brair!3Déf$",
     "Ch@mbreSecrète",
     "R3p0s@ssur@nt",

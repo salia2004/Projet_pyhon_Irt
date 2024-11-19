@@ -27,7 +27,8 @@ def mot_alphabet(k,alphabet):
         construire_mots("", k)
         return combinaison
 
-#Fonction qui prend en parametre un 
+#Fonction qui prend en parametre un alphabet et un motif et 
+# retourne tout les mots de l'alphabet ayant ce motif 
 def mot_motif(alphabet,motif):
     """    
     :param motif: decrit la structure des mots rechercher 
@@ -52,7 +53,7 @@ def mot_motif(alphabet,motif):
     return mots
 
 
-#Vérifie si un mot correspond à un motif donné sur un alphabet
+# Vérifie si un mot correspond à un motif donné
 def mot_correspond_motif(motif, alphabet, mot):
     """    
     :param motif: decrit la structure des mots rechercher 
@@ -94,3 +95,31 @@ def mots_par_repetition(motif, alphabet):
         resultats = nouveaux_resultats
 
     return resultats
+
+def generer_chaines_alphanumeriques():
+    """
+    Génère et affiche toutes les chaînes alphanumériques commençant par une lettre et de longueur ≤ max_length.
+    :param max_length: Longueur maximale des chaînes à générer.
+    """
+    max_length=5
+    alphabet = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
+    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    resultats = []
+    for longueur in range(1, max_length + 1):
+        # Générer toutes les combinaisons de cette longueur
+        combinaisons = mot_alphabet(longueur, alphabet)
+        # Filtrer celles qui commencent par une lettre
+        resultats.extend([mot for mot in combinaisons if mot[0].isalpha()])
+    
+    # Afficher les résultats
+    print("Chaînes alphanumériques générées (longueur ≤ 5) :")
+    for mot in resultats:
+        print(mot)
+    print(len(resultats))
+    #pour maxlenth=3 on a 203164 comme  resultat
+    #Pour n=4 on a 12596220 comme resultat
+    #et pour len=5 on une boucle infini  

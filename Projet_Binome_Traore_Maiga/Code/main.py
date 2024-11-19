@@ -3,9 +3,17 @@ import exercice2 as ex2
 import exercice3 as ex3
 import exercice4 as ex4
 fichier_html="code.html"
+
+def main1():
+    resultat = ex1.balises_dans_body(fichier_html)
+    print(f"Résultat obtenu pour balises_dans_body : {resultat}")
+    assert resultat == {"p"}, "Échec : Mauvaises balises dans <body>"
 def main():
+
+    ex4.generer_chaines_alphanumeriques()
     # Tester l'Exercice 1
     #-----------------Question 1
+
     with open(fichier_html, 'r', encoding='utf-8') as fichier:
         texte = fichier.read()  # Lire le contenu du fichier
     print("Test de l'équilibrage des balises HTML :", ex1.verifier_balises(texte))
@@ -14,8 +22,10 @@ def main():
     print("Nombre de balises <p> dans le code HTML {fichier_html}:", ex1.compter_balises_p(fichier_html))
     print("Balises dans la section <body> :", ex1.balises_dans_body(fichier_html))
 
+
+
     # Tester l'Exercice 2
-    #-----------------Question 
+
     mdp1="Paul09@"
     mdp2="jgfihgijb0ihvhiKgf"
     mdp3="PaulSabation#@#"
@@ -29,25 +39,29 @@ def main():
     print("le mode de passe ",mdp5,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp5))
     print("le mode de passe ",mdp_compromis,"est t-il valide ?:",ex2.mots_de_passe_valide(mdp_compromis))
     print("le mode de passe ",mdp_compromis," Est-il compromis ?:",ex2.mdp_compromis(mdp_compromis))
+    
 
 
     # Tester l'Exercice 3
+    #--------------------Question 1&2
     def lire_fichier(nom_fichier):
         with open(nom_fichier, 'r') as f:
             return f.read()  # Lire le contenu du fichier
     message="message.txt"
     texte=lire_fichier(message)
     cle="mystere"
-    cryptogramme= ex3.vigenere_chiffre(texte,cle)
-    print("Cryptogramme : ", cryptogramme)
+    print(texte)
+    texte_crypter= ex3.vigenere(texte,cle)
+    print("Texte Cryptogramme : ", texte_crypter)
+    texte_decryptter=ex3.vigenere_dechiffre(texte_crypter,cle)
+    print("Texte decrypter : ",texte_decryptter)
 
-    #Question2
-    fichier="crypto.txt"
-    cryptogramme=lire_fichier(fichier)
-    cle="mystere"
-    texte_clair= ex3.vigenere_dechiffre(cryptogramme,cle)
-    print("Texte clair: ", texte_clair )
-
+    texte_clair1 = "HELLO"
+    cle1 = "KEY"
+    texte_crypter=ex3.vigenere(texte_clair1,cle1)
+    print(f"Le resultat du cryptage du code {texte_clair1} avec la cle {cle1} est:",texte_crypter)
+    texte_clair12=ex3.vigenere_dechiffre(texte_crypter,cle1)
+    print(f"focntion inverse:",texte_clair12)
 
 
     # Tester l'Exercice 4
@@ -88,7 +102,7 @@ def main():
     #-----------------Question 2.2
     #---- Programme permetant d'affihcer toute les chaines alphanumerique commencant par une lettre et de logueur 5----
     
-
+    #ex4.generer_chaines_alphanumeriques()--> a tester pour 5
 
     #-----------------Question 3
     alphabet = '01'
@@ -110,4 +124,4 @@ def main():
     print(resultat)
 
 if __name__ == "__main__":
-    main()
+    main1()
