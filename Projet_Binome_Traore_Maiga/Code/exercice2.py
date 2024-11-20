@@ -1,4 +1,16 @@
+"""
+Exercice 2 : Validation des mots de passe
 
+Ce programme vérifie si les mots de passe respectent les critères de sécurité
+et s'ils figurent dans une liste de mots de passe compromis. Les critères incluent :
+- Une lettre majuscule et une lettre minuscule.
+- Un chiffre et un caractère spécial (!, @, #, etc.).
+- Une longueur minimale de 12 caractères.
+
+Fonctions principales :
+- mots_de_passe_valide : Vérifie si un mot de passe est sécurisé.
+- mdp_compromis : Vérifie si un mot de passe est compromis.
+"""
 def a_minuscule(p):
     for elem in p:
         if 'a'<= elem <= 'z':
@@ -27,7 +39,7 @@ def mots_de_passe_valide(password):
         return True
     return False
 
-#Liste non exhaustive de mot de passe valide mai compromis 
+#Liste non exhaustive de mot de passe valide mais compromis 
 mots_de_passe_compromis = [
     "P@ss3Moi1234!",
     "J@imeLaSécur1té",

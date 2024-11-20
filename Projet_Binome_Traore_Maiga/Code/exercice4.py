@@ -1,6 +1,22 @@
 
-#Fonction qui à partir d’un alphabet et d’une longueur k, générer toutes 
-# les combinaisons possibles de longueur k avec les éléments de l'alphabet.
+"""
+Exercice 4 : Génération et manipulation de mots basés sur un alphabet
+
+Ce programme génère des combinaisons de mots basées sur un alphabet et
+des motifs spécifiques. Il offre des outils pour :
+- Générer toutes les combinaisons possibles pour une longueur donnée.
+- Créer des mots respectant un motif défini.
+- Vérifier si un mot correspond à un motif.
+- Générer des mots basés sur des répétitions spécifiques de lettres.
+
+Fonctions principales :
+- mot_alphabet : Génère toutes les combinaisons possibles d'un alphabet.
+- mot_motif : Génère des mots respectant un motif donné.
+- mot_correspond_motif : Vérifie si un mot correspond à un motif.
+- mots_par_repetition : Génère des mots selon un motif de répétition.
+-generer_chaine_alphanumerique :Génère et affiche toutes les chaînes alphanumériques commençant par une lettre et de longueur ≤ 5
+"""
+
 def mot_alphabet(k,alphabet):
     combinaison=[]#liste de scombinaison possible
     if k<=0:
@@ -21,8 +37,7 @@ def mot_alphabet(k,alphabet):
         construire_mots("", k)
         return combinaison
 
-#Fonction qui prend en parametre un alphabet et un motif et 
-# retourne tout les mots de l'alphabet ayant ce motif 
+
 def mot_motif(alphabet,motif):
     mots=[]
     taille_mot=len(motif)
@@ -42,7 +57,7 @@ def mot_motif(alphabet,motif):
     return mots
 
 
-# Vérifie si un mot correspond à un motif donné
+
 def mot_correspond_motif(motif, alphabet, mot):
     """    
     :param motif: decrit la structure des mots rechercher 
@@ -63,9 +78,7 @@ def mot_correspond_motif(motif, alphabet, mot):
     # Si toutes les conditions sont remplies, le mot correspond au motif
     return True
 
-#Génère tous les mots correspondant à un motif
-# Chaque élément du motif indique le nombre de répétitions consécutives de lettres
-# Les lettres doivent être différentes les unes des autres
+
 def mots_par_repetition(motif, alphabet):
     resultats = [''] 
     for repetitions in motif:
@@ -80,10 +93,6 @@ def mots_par_repetition(motif, alphabet):
     return resultats
 
 def generer_chaines_alphanumeriques():
-    """
-    Génère et affiche toutes les chaînes alphanumériques commençant par une lettre et de longueur ≤ max_length.
-    :param max_length: Longueur maximale des chaînes à générer.
-    """
     max_length=5
     alphabet = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
@@ -103,6 +112,6 @@ def generer_chaines_alphanumeriques():
     for mot in resultats:
         print(mot)
     print(len(resultats))
-    #pour  max_length  = 3 on a 203164 comme  resultat
-    #Pour max_length =4 on a 12596220 comme resultat
+    #pour  max_length  = 3 on a 203164 element comme  resultat
+    #Pour max_length =4 on a 12596220 element comme resultat
     #et pour  max_length  =5 on une boucle infini  

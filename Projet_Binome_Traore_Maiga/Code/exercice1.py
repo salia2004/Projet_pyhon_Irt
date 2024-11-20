@@ -1,3 +1,19 @@
+""""
+Exercice 1 : Analyse et vérification des balises HTML
+
+Ce programme permet  d'analyser la structure des fichiers HTML:
+- Vérifier si les balises HTML sont correctement équilibrées.
+- Compter les occurrences de chaque type de balise.
+- Identifier spécifiquement le nombre de balises `<p>`.
+- Extraire la liste des balises contenues dans la section `<body>`.
+
+Fonctions principales :
+- verifier_balises
+- compter_occurrences_balises
+- compter_balises_p
+- balises_dans_body
+"""
+
 #_________Question 1 ______________
 #Équilibrage des Balises HTML
 
@@ -61,7 +77,8 @@ def verifier_balises(text_html):
                 pile_balise.pop()
     return len(pile_balise) == 0
 
-#fonction qui ocmpte les occurence d'un balise dans texte HTML et renvoi un dictionnaire qui a chaque balise fait correspondre son occcurence
+#fonction qui ocmpte les occurence d'un balise dans texte HTML et renvoi un 
+# dictionnaire qui a chaque balise fait correspondre son occcurence
 def compter_occurrences_balises(fichier_html):
     compteur = {}  # Dictionnaire pour stocker les occurrences des balises
     try:
@@ -80,7 +97,6 @@ def compter_occurrences_balises(fichier_html):
                     else:
                         compteur[tag] = 1
         return compteur
-    
     except FileNotFoundError:
         print(f"Erreur : Le fichier {fichier_html} est introuvable.")
         return {}

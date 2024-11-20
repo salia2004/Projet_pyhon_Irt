@@ -1,3 +1,14 @@
+"""
+Exercice 3 : Chiffrement et déchiffrement avec Vigenère
+
+Ce programme implémente l'algorithme de chiffrement de Vigenère. Il permet :
+- De chiffrer un texte clair avec une clé donnée.
+- De déchiffrer un texte chiffré pour retrouver le texte original.
+
+Fonctions principales :
+- vigenere : Chiffre un texte avec la clé.
+- vigenere_dechiffre : Déchiffre un texte chiffré avec la clé.
+"""
 def vigenere(texte_clair, cle):
     texte_clair=texte_clair.upper()
     cle=cle.upper()

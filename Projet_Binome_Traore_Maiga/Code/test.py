@@ -1,9 +1,14 @@
-#Ce fichier test contient les test de tout les exercice du dm
-import sys
-import os
+"""
+Programme de tests pour les exercices 1 à 4
 
-# Ajouter le répertoire parent au chemin d'importation
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
+Ce programme contient les tests unitaires pour valider le bon fonctionnement des 
+exercices 1, 2, 3 et 4 d'un projet Python. 
+Chaque exercice est testé de manière indépendante et peut également être lancé de 
+manière globale grâce à la fonction `All_test()`. 
+
+Pour lancer tous les jeux de tests ou tester un exercice spécifique; exécuter main_test.py
+
+"""
 import exercice4 as ex4
 import exercice3 as ex3
 import exercice2 as ex2
@@ -14,48 +19,44 @@ import exercice1 as ex1
 def test_exercice1():
     print("\nDébut des tests pour l'Exercice 1 : Vérification des balises HTML\n")
     
-    # Base du chemin pour ce script
-    base_path = os.path.dirname(os.path.abspath(__file__))
-    
-    # Chemins vers les fichiers HTML
     fichiers_html = {
-        "code.html": os.path.join(base_path, "code.html"),
-        "absence_body.html": os.path.join(base_path, "absence_body.html"),
-        "balise_auto_fermante.html": os.path.join(base_path, "balise_auto_fermante.html"),
-        "balise_nom_equilibre.html": os.path.join(base_path, "balise_nom_equilibre.html")
+        "code.html",
+        "absence_body.html",
+        "balise_auto_fermante.html",
+        "balise_nom_equilibre.html"
     }
     
-    for nom_fichier, chemin_fichier in fichiers_html.items():
+    for nom_fichier in fichiers_html:
         print(f"\n--- Test pour {nom_fichier} ---")
         
         try:
-            with open(chemin_fichier, 'r', encoding='utf-8') as fichier:
+            with open(nom_fichier, 'r', encoding='utf-8') as fichier:
                 texte = fichier.read()
             
             # Test de `verifier_balises`
             print("\nTest de la fonction `verifier_balises`")
             resultat_equilibre = ex1.verifier_balises(texte)
-            print("La balise est-elle eauilibre ?:",resultat_equilibre)
+            print("La balise est-elle equilibre ?:",resultat_equilibre)
             print("✔ La vérification des balises est correcte.")
             
             # Test de `compter_occurrences_balises`
             print("\nTest de la fonction `compter_occurrences_balises`")
-            resultat_occurrences = ex1.compter_occurrences_balises(chemin_fichier)
+            resultat_occurrences = ex1.compter_occurrences_balises(nom_fichier)
             print("Resulat occurence balise:",resultat_occurrences)
             print("✔ Le comptage des balises est correct.")
             
             # Test de `compter_balises_p`
             print("\nTest de la fonction `compter_balises_p`")
-            resultat_p = ex1.compter_balises_p(chemin_fichier)
+            resultat_p = ex1.compter_balises_p(nom_fichier)
             print(f"✔ Le nombre de balises <p> est correct ({resultat_p}).")
             
             # Test de `balises_dans_body`
             print("\nTest de la fonction `balises_dans_body`")
-            resultat_body = ex1.balises_dans_body(chemin_fichier)
+            resultat_body = ex1.balises_dans_body(nom_fichier)
             print("✔ La liste des balises dans <body> est correcte:",resultat_body)
         
         except FileNotFoundError:
-            print(f"Erreur : Le fichier {chemin_fichier} est introuvable.")
+            print(f"Erreur : Le fichier {nom_fichier} est introuvable.")
         except AssertionError as e:
             print(f"{e}")
     
@@ -113,7 +114,6 @@ def test_exercice2():
 #Test exercice 3
 def test_exercice3():
     print("\nDébut des tests pour l'Exercice 3 : Chiffrement et déchiffrement Vigenère\n")
-    
     # Cas de test statiques
     print("Test des cas statiques de chiffrement et déchiffrement")
     cas_de_test = [
@@ -123,7 +123,6 @@ def test_exercice3():
         ("Test123@!!", "KEY", "DIQD123@!!"),  # Test avec caractères spéciaux
         ("Lowercase", "UPPER", "FDLIIWPHI"),  # Test avec lettres minuscules
     ]
-    
     for texte_clair, cle, attendu in cas_de_test:
         texte_crypter = ex3.vigenere(texte_clair, cle)
         print(texte_crypter)
@@ -132,7 +131,6 @@ def test_exercice3():
         texte_dechiffre = ex3.vigenere_dechiffre(texte_crypter, cle)
         assert texte_dechiffre.lower() == texte_clair.lower(), f"Échec déchiffrement : attendu {texte_clair}, obtenu {texte_dechiffre}"
     print("✔ Tous les tests statiques ont réussi.")
-    
     # Test avec un fichier
     print("\nTest avec un fichier texte")
     def lire_fichier(nom_fichier):
@@ -145,7 +143,6 @@ def test_exercice3():
     # Chiffrement
     texte_crypter = ex3.vigenere(texte_clair, cle)
     print("Texte cryptogramme généré :")
-
     # Déchiffrement
     texte_dechiffre = ex3.vigenere_dechiffre(texte_crypter, cle)
     print(texte_dechiffre)
