@@ -38,7 +38,6 @@ def extraire_balise(text):
             balise_nom = balise.split()[0]  # Garde tout avant le premier espace
             if balise_nom in liste_balise or balise_nom in balise_auto_fermante:  # Vérifie dans les listes de balises
                 liste.append(balise_nom)
-            # Mettre `i` à la fin de la balise fermante pour éviter les répétitions
             i = j
         else:
             i += 1  # Avancer si on n'est pas sur une balise
@@ -50,9 +49,7 @@ def verifier_balises(text_html):
     liste_balise=extraire_balise(text_html)
     pile_balise=[]
     for balise in liste_balise:
-        #Cas d'une balise ouvrante
         balise_nom = balise.split()[0]
-        # Cas d'une balise ouvrante (pas auto-fermante)
         if (not balise_nom.startswith('/')) and (balise_nom not in balise_auto_fermante):
             pile_balise.append(balise_nom)
         else:
@@ -62,8 +59,8 @@ def verifier_balises(text_html):
                 if not pile_balise or pile_balise[-1] != balise_fermant:
                     return False  # Balise fermante ne correspond pas
                 pile_balise.pop()
-    # Vérifier si toutes les balises ouvrantes ont été fermées
     return len(pile_balise) == 0
+
 #fonction qui ocmpte les occurence d'un balise dans texte HTML et renvoi un dictionnaire qui a chaque balise fait correspondre son occcurence
 def compter_occurrences_balises(fichier_html):
     compteur = {}  # Dictionnaire pour stocker les occurrences des balises
@@ -83,6 +80,7 @@ def compter_occurrences_balises(fichier_html):
                     else:
                         compteur[tag] = 1
         return compteur
+    
     except FileNotFoundError:
         print(f"Erreur : Le fichier {fichier_html} est introuvable.")
         return {}
@@ -92,7 +90,7 @@ def compter_occurrences_balises(fichier_html):
 #_________Question 2 ______________
 
 def compter_balises_p(fichier_html):
-    compte=0#compteir du nombre de balise <p>
+    compte=0#compter du nombre de balise <p>
     try:
         with open(fichier_html, 'r', encoding='utf-8') as fichier:
             texte = fichier.read()  # Lire le contenu du fichier
